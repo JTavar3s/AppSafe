@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:face_net_authentication/constants/constants.dart';
 import 'package:face_net_authentication/locator.dart';
 import 'package:face_net_authentication/pages/db/databse_helper.dart';
+import 'package:face_net_authentication/pages/profile.dart';
 import 'package:face_net_authentication/pages/sign-in.dart';
 import 'package:face_net_authentication/pages/sign-up.dart';
 import 'package:face_net_authentication/services/camera.service.dart';
@@ -40,51 +41,20 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Container(),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actions: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(right: 20, top: 20),
-            child: PopupMenuButton<String>(
-              child: Icon(
-                Icons.more_vert,
-                color: Colors.black,
-              ),
-              onSelected: (value) {
-                switch (value) {
-                  case 'Clear DB':
-                    DatabaseHelper _dataBaseHelper = DatabaseHelper.instance;
-                    _dataBaseHelper.deleteAll();
-                    break;
-                }
-              },
-              itemBuilder: (BuildContext context) {
-                return {'Clear DB'}.map((String choice) {
-                  return PopupMenuItem<String>(
-                    value: choice,
-                    child: Text(choice),
-                  );
-                }).toList();
-              },
-            ),
-          ),
-        ],
-      ),
       body: !loading
           ? SingleChildScrollView(
+              padding: EdgeInsets.only(top: 20),
               child: SafeArea(
                 child: Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
+                        padding: const EdgeInsets.only(bottom: 60),
                         child: Image(
                           image: AssetImage('assets/logo.png'),
                           color: Colors.black,
-                          width: 300,
+                          width: 200,
                         ),
                       ),
                       Container(
@@ -98,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 "FaceSafe - Autenticação",
                                 softWrap: false,
                                 style: TextStyle(
-                                    fontSize: 35, fontWeight: FontWeight.bold),
+                                    fontSize: 40, fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -115,21 +85,36 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      SizedBox(height: 20),
+                      Container(
+                        width: 500,
                         height: 400,
+                        decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.9),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
+                            )),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 40),
                           child: Column(
                             children: [
                               InkWell(
                                 onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (BuildContext context) =>
+                                  //         SignIn(),
+                                  //   ),
+                                  // );
                                   Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          SignIn(),
-                                    ),
-                                  );
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Profile(
+                                            "username",
+                                            imagePath: "imagePath"),
+                                      ));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -213,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               SizedBox(
                                 height: 20,
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: MediaQuery.of(context).size.width * 0.5,
                                 child: Divider(
                                   thickness: 2,
                                 ),
