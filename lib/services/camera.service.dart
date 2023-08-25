@@ -33,7 +33,7 @@ class CameraService {
   }) async {
     this._cameraController = CameraController(
       description,
-      ResolutionPreset.high,
+      ResolutionPreset.low,
       enableAudio: false,
     );
     await _cameraController?.initialize();
