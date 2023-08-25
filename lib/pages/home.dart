@@ -100,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: [
                               InkWell(
+                                //comentar e descomentar para burlar o reconhecimentobb
                                 onTap: () {
                                   // Navigator.push(
                                   //   context,
