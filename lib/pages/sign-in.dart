@@ -79,7 +79,7 @@ class SignInState extends State<SignIn> {
       showDialog(
           context: context,
           builder: (context) =>
-              AlertDialog(content: Text('No face detected!')));
+              AlertDialog(content: Text('Nenhum rosto encontrado!')));
     }
   }
 
@@ -131,7 +131,7 @@ class SignInState extends State<SignIn> {
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(20),
           child: Text(
-            'User not found 😞',
+            'Usuário não encontrado!😞',
             style: TextStyle(fontSize: 20),
           ),
         )

@@ -64,7 +64,7 @@ class SignUpState extends State<SignUp> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text('No face detected!'),
+            content: Text('Nenhum rosto detectado!'),
           );
         },
       );

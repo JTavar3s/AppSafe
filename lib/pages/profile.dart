@@ -299,7 +299,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(top: 68),
                           child: Text(
-                            "Projeto voltando para fetin 2023. ",
+                            "Projeto voltado para fetin 2023. ",
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 16,
