@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:face_net_authentication/constants/colors.dart';
-import 'package:face_net_authentication/pages/widgets/app_button.dart';
+import 'package:face_net_authentication/pages/widgets/home/resident_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -105,48 +105,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     return false;
   }
 
-  final String githubURL =
-      "https://github.com/MCarlomagno/FaceRecognitionAuth/tree/master";
-
-  void _launchURL() async => await canLaunch(githubURL)
-      ? await launch(githubURL)
-      : throw 'Could not launch $githubURL';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         extendBody: true,
-        // bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-        //   onTap: (value) {
-        //     setState(() {});
-        //   },
-        //   itemCount: iconList.length,
-        //   tabBuilder: (int index, bool isActive) {
-        //     final color = isActive ? Colors.white : Colors.black;
-        //     return Column(
-        //       mainAxisSize: MainAxisSize.min,
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Icon(
-        //           iconList[index],
-        //           size: 24,
-        //           color: color,
-        //         ),
-        //         const SizedBox(height: 4),
-        //         Padding(
-        //           padding: const EdgeInsets.symmetric(horizontal: 8),
-        //           child: AutoSizeText(
-        //             "brightness $index",
-        //             maxLines: 1,
-        //             style: TextStyle(color: color),
-        //             group: autoSizeGroup,
-        //           ),
-        //         )
-        //       ],
-        //     );
-        //   },
-        //   activeIndex: 1,
-        // ),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -231,15 +193,26 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  height: 140,
-                                  width: 140,
-                                  decoration: BoxDecoration(
-                                    color: SafeFaceColors().blueCard,
-                                    borderRadius: BorderRadius.circular(32),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ResidentPage(
+                                            name: widget.username,
+                                          ),
+                                        ));
+                                  },
+                                  child: Container(
+                                    height: 140,
+                                    width: 140,
+                                    decoration: BoxDecoration(
+                                      color: SafeFaceColors().blueCard,
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
+                                    child:
+                                        Image.asset('assets/Icons/morador.png'),
                                   ),
-                                  child:
-                                      Image.asset('assets/Icons/morador.png'),
                                 ),
                                 Text(
                                   "Morador",
@@ -326,7 +299,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(top: 68),
                           child: Text(
-                            "Projeto voltado para a Fetin 2023",
+                            "Projeto voltando para fetin 2023. ",
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 16,

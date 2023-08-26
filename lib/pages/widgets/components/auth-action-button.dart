@@ -2,12 +2,14 @@ import 'package:face_net_authentication/locator.dart';
 import 'package:face_net_authentication/pages/db/databse_helper.dart';
 import 'package:face_net_authentication/pages/models/user.model.dart';
 import 'package:face_net_authentication/pages/profile.dart';
-import 'package:face_net_authentication/pages/widgets/app_button.dart';
+
 import 'package:face_net_authentication/services/camera.service.dart';
 import 'package:face_net_authentication/services/ml_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart';
-import '../home.dart';
+
+import '../../home.dart';
+import 'app_button.dart';
 import 'app_text_field.dart';
 
 class AuthActionButton extends StatefulWidget {

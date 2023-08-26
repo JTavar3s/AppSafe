@@ -113,8 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => Profile(
-                                            "username",
-                                            imagePath: "imagePath"),
+                                          "username",
+                                          imagePath: "imagePath",
+                                        ),
                                       ));
                                 },
                                 child: Container(
