@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:face_net_authentication/constants/colors.dart';
 import 'package:face_net_authentication/pages/widgets/home/resident_page.dart';
+import 'package:face_net_authentication/pages/widgets/home/visitante_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -227,15 +228,23 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                             SizedBox(width: 26),
                             Column(
                               children: [
-                                Container(
-                                  height: 140,
-                                  width: 140,
-                                  decoration: BoxDecoration(
-                                    color: SafeFaceColors().blueCard,
-                                    borderRadius: BorderRadius.circular(32),
+                                InkWell(
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => VisitantePage(
+                                                name: widget.username,
+                                              ))),
+                                  child: Container(
+                                    height: 140,
+                                    width: 140,
+                                    decoration: BoxDecoration(
+                                      color: SafeFaceColors().blueCard,
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
+                                    child: Image.asset(
+                                        'assets/Icons/visitante.png'),
                                   ),
-                                  child:
-                                      Image.asset('assets/Icons/visitante.png'),
                                 ),
                                 Text(
                                   "Visitante",
