@@ -28,7 +28,7 @@ class AuthButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'CAPTURE',
+              'CAPTURAR',
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(

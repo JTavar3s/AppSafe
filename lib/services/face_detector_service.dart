@@ -18,13 +18,13 @@ class FaceDetectorService {
   void initialize() {
     _faceDetector = GoogleMlKit.vision.faceDetector(
       FaceDetectorOptions(
-        performanceMode: FaceDetectorMode.fast,
+        performanceMode: FaceDetectorMode.accurate,
       ),
     );
 
     // _faceDetector = FaceDetector(
     //     options: FaceDetectorOptions(
-    //         performanceMode: FaceDetectorMode.fast,
+    //         performanceMode: FaceDetectorMode.accurate,
     //         enableContours: true,
     //         enableClassification: true));
   }

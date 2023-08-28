@@ -85,12 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 50),
                       Container(
                         width: 500,
                         height: 400,
                         decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.9),
+                            color: Colors.black,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30),
@@ -102,21 +102,21 @@ class _MyHomePageState extends State<MyHomePage> {
                               InkWell(
                                 //comentar e descomentar para burlar o reconhecimentobb
                                 onTap: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (BuildContext context) =>
-                                  //         SignIn(),
-                                  //   ),
-                                  // );
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Profile(
-                                          "username",
-                                          imagePath: "imagePath",
-                                        ),
-                                      ));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          SignIn(),
+                                    ),
+                                  );
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //       builder: (context) => Profile(
+                                  //         "username",
+                                  //         imagePath: "imagePath",
+                                  //       ),
+                                  //     ));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
