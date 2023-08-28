@@ -175,7 +175,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 140),
+                            SizedBox(width: 120),
                             Icon(
                               Icons.notifications_active,
                               color: Colors.white,
@@ -205,8 +205,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                         ));
                                   },
                                   child: Container(
-                                    height: 140,
-                                    width: 140,
+                                    height: 120,
+                                    width: 120,
                                     decoration: BoxDecoration(
                                       color: SafeFaceColors().blueCard,
                                       borderRadius: BorderRadius.circular(32),
@@ -236,14 +236,15 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                                 name: widget.username,
                                               ))),
                                   child: Container(
-                                    height: 140,
-                                    width: 140,
+                                    height: 120,
+                                    width: 120,
                                     decoration: BoxDecoration(
                                       color: SafeFaceColors().blueCard,
-                                      borderRadius: BorderRadius.circular(32),
+                                      borderRadius: BorderRadius.circul'ar(32),
                                     ),
                                     child: Image.asset(
-                                        'assets/Icons/visitante.png'),
+                                      'assets/Icons/visitante.png',
+                                    ),
                                   ),
                                 ),
                                 Text(
@@ -263,8 +264,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           children: [
                             Column(children: [
                               Container(
-                                height: 140,
-                                width: 140,
+                                height: 120,
+                                width: 120,
                                 decoration: BoxDecoration(
                                   color: SafeFaceColors().blueCard,
                                   borderRadius: BorderRadius.circular(32),
@@ -284,8 +285,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                             Column(
                               children: [
                                 Container(
-                                  height: 140,
-                                  width: 140,
+                                  height: 120,
+                                  width: 120,
                                   decoration: BoxDecoration(
                                     color: SafeFaceColors().blueCard,
                                     borderRadius: BorderRadius.circular(32),

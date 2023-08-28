@@ -102,21 +102,21 @@ class _MyHomePageState extends State<MyHomePage> {
                               InkWell(
                                 //comentar e descomentar para burlar o reconhecimentobb
                                 onTap: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (BuildContext context) =>
-                                  //         SignIn(),
-                                  //   ),
-                                  // );
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Profile(
-                                          "username",
-                                          imagePath: "imagePath",
-                                        ),
-                                      ));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          SignIn(),
+                                    ),
+                                  );
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //       builder: (context) => Profile(
+                                  //         "username",
+                                  //         imagePath: "imagePath",
+                                  //       ),
+                                  //     ));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
