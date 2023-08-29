@@ -9,6 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path/path.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'home.dart';
+import 'sign-in.dart';
 
 class Profile extends StatefulWidget {
   const Profile(this.username, {Key? key, required this.imagePath})
@@ -130,6 +131,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           left: 20, bottom: 150, top: 100),
                       child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
                               height: 90,
@@ -154,10 +156,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      widget.username,
+                                      'Menu Principal',
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 16,
+                                        fontSize: 24,
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
@@ -175,7 +177,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 120),
+                            // SizedBox(width: 70),
                             Icon(
                               Icons.notifications_active,
                               color: Colors.white,
@@ -197,12 +199,19 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                 InkWell(
                                   onTap: () {
                                     Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => ResidentPage(
-                                            name: widget.username,
-                                          ),
-                                        ));
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            SignIn(),
+                                      ),
+                                    );
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //       builder: (context) => ResidentPage(
+                                    //         name: widget.username,
+                                    //       ),
+                                    //     ));
                                   },
                                   child: Container(
                                     height: 120,
@@ -240,7 +249,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                     width: 120,
                                     decoration: BoxDecoration(
                                       color: SafeFaceColors().blueCard,
-                                      borderRadius: BorderRadius.circul'ar(32),
+                                      borderRadius: BorderRadius.circular(32),
                                     ),
                                     child: Image.asset(
                                       'assets/Icons/visitante.png',

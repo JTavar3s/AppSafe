@@ -102,21 +102,21 @@ class _MyHomePageState extends State<MyHomePage> {
                               InkWell(
                                 //comentar e descomentar para burlar o reconhecimentobb
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          SignIn(),
-                                    ),
-                                  );
                                   // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //       builder: (context) => Profile(
-                                  //         "username",
-                                  //         imagePath: "imagePath",
-                                  //       ),
-                                  //     ));
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (BuildContext context) =>
+                                  //         SignIn(),
+                                  //   ),
+                                  // );
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Profile(
+                                          "username",
+                                          imagePath: "imagePath",
+                                        ),
+                                      ));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -139,15 +139,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Entrar',
+                                        'Liberar Acesso',
                                         style:
                                             TextStyle(color: Color(0xFF0F0BDB)),
                                       ),
                                       SizedBox(
                                         width: 10,
                                       ),
-                                      Icon(Icons.login,
-                                          color: Color(0xFF0F0BDB))
+                                      Icon(
+                                        Icons.login,
+                                        color: Color(0xFF0F0BDB),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -186,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Registre-se',
+                                        'Cadastrar Morador',
                                         style: TextStyle(color: Colors.white),
                                       ),
                                       SizedBox(
