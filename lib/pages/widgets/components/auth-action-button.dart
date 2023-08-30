@@ -24,6 +24,7 @@ class AuthActionButton extends StatefulWidget {
   _AuthActionButtonState createState() => _AuthActionButtonState();
 }
 
+
 class _AuthActionButtonState extends State<AuthActionButton> {
   final MLService _mlService = locator<MLService>();
   final CameraService _cameraService = locator<CameraService>();

@@ -204,27 +204,27 @@ class _MyHomePageState extends State<MyHomePage> {
                               SizedBox(
                                 height: 100,
                               ),
-                              InkWell(
-                                onTap: () {
-                                  DatabaseHelper _dataBaseHelper =
-                                      DatabaseHelper.instance;
-                                  _dataBaseHelper.deleteAll().then(
-                                      (value) => Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => MyHomePage(),
-                                          ),
-                                          (route) => false));
-                                },
-                                child: Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 30,
-                                  color: Colors.red,
-                                  child: Center(
-                                    child: Text('Delete Database'),
-                                  ),
-                                ),
-                              ),
+                              // InkWell(
+                              //   onTap: () {
+                              //     DatabaseHelper _dataBaseHelper =
+                              //         DatabaseHelper.instance;
+                              //     _dataBaseHelper.deleteAll().then(
+                              //         (value) => Navigator.pushAndRemoveUntil(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //               builder: (context) => MyHomePage(),
+                              //             ),
+                              //             (route) => false));
+                              //   },
+                              //   child: Container(
+                              //     width: MediaQuery.of(context).size.width,
+                              //     height: 30,
+                              //     color: Colors.red,
+                              //     child: Center(
+                              //       child: Text('Delete Database'),
+                              //     ),
+                              //   ),
+                              // ),
                               SizedBox(
                                 height: 20,
                                 width: MediaQuery.of(context).size.width * 0.5,

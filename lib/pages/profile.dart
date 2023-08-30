@@ -133,49 +133,56 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Container(
-                              height: 90,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                              ),
-                              child: Icon(
-                                Icons.person,
-                                color: Colors.black,
-                                size: 46,
-                              ),
-                            ),
-                            SizedBox(width: 12),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 80),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Menu Principal',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () => Navigator.pop(context),
-                                      child: Text(
-                                        "SAIR",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ],
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: Icon(
+                                    Icons.person,
+                                    color: Colors.black,
+                                    size: 46,
+                                  ),
                                 ),
-                              ),
+                                SizedBox(width: 12),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 80),
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'Menu Principal',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () => Navigator.pop(context),
+                                          child: Text(
+                                            "SAIR",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             // SizedBox(width: 70),
                             Icon(
