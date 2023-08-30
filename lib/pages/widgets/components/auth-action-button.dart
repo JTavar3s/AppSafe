@@ -2,11 +2,10 @@ import 'package:face_net_authentication/locator.dart';
 import 'package:face_net_authentication/pages/db/databse_helper.dart';
 import 'package:face_net_authentication/pages/models/user.model.dart';
 import 'package:face_net_authentication/pages/profile.dart';
-
 import 'package:face_net_authentication/services/camera.service.dart';
 import 'package:face_net_authentication/services/ml_service.dart';
 import 'package:flutter/material.dart';
-import 'package:image/image.dart';
+// import 'package:image/image.dart';
 
 import '../../home.dart';
 import 'app_button.dart';
@@ -31,8 +30,8 @@ class _AuthActionButtonState extends State<AuthActionButton> {
 
   final TextEditingController _userTextEditingController =
       TextEditingController(text: '');
-  final TextEditingController _passwordTextEditingController =
-      TextEditingController(text: '');
+  // final TextEditingController _passwordTextEditingController =
+  //     TextEditingController(text: '');
 
   User? predictedUser;
 
@@ -40,15 +39,30 @@ class _AuthActionButtonState extends State<AuthActionButton> {
     DatabaseHelper _databaseHelper = DatabaseHelper.instance;
     List predictedData = _mlService.predictedData;
     String user = _userTextEditingController.text;
-
+    // String password = _passwordTextEditingController.text;
     User userToSave = User(
       user: user,
+      password: 'secret',
       modelData: predictedData,
     );
     await _databaseHelper.insert(userToSave);
     this._mlService.setPredictedData([]);
-    Navigator.push(context,
-        MaterialPageRoute(builder: (BuildContext context) => MyHomePage()));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => MyHomePage(),
+        ));
+  }
+
+  Future _signIn(context) async {
+    // String password = _passwordTextEditingController.text;
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (BuildContext context) => Profile(
+                  this.predictedUser!.user,
+                  imagePath: _cameraService.imagePath!,
+                )));
   }
 
   Future<User?> _predictUser() async {
@@ -134,52 +148,52 @@ class _AuthActionButtonState extends State<AuthActionButton> {
                       style: TextStyle(fontSize: 20),
                     ))
                   : Container(),
-          // Container(
-          //   child: Column(
-          //     children: [
-          //       !widget.isLogin
-          //           ? AppTextField(
-          //               controller: _userTextEditingController,
-          //               labelText: "Your Name",
-          //             )
-          //           : Container(),
-          //       SizedBox(height: 10),
-          //       widget.isLogin && predictedUser == null
-          //           ? Container()
-          //           : AppTextField(
-          //               controller: _passwordTextEditingController,
-          //               labelText: "Password",
-          //               isPassword: true,
-          //             ),
-          //       SizedBox(height: 10),
-          //       Divider(),
-          //       SizedBox(height: 10),
-          //       widget.isLogin && predictedUser != null
-          //           ? AppButton(
-          //               text: 'LOGIN',
-          //               onPressed: () async {
-          //                 _signIn(context);
-          //               },
-          //               icon: Icon(
-          //                 Icons.login,
-          //                 color: Colors.white,
-          //               ),
-          //             )
-          //           : !widget.isLogin
-          //               ? AppButton(
-          //                   text: 'SIGN UP',
-          //                   onPressed: () async {
-          //                     await _signUp(context);
-          //                   },
-          //                   icon: Icon(
-          //                     Icons.person_add,
-          //                     color: Colors.white,
-          //                   ),
-          //                 )
-          //               : Container(),
-          //     ],
-          //   ),
-          // ),
+          Container(
+            child: Column(
+              children: [
+                !widget.isLogin
+                    ? AppTextField(
+                        controller: _userTextEditingController,
+                        labelText: "Your Name",
+                      )
+                    : Container(),
+                SizedBox(height: 10),
+                // widget.isLogin && predictedUser == null
+                //     ? Container()
+                //     : AppTextField(
+                //         controller: _passwordTextEditingController,
+                //         labelText: "Password",
+                //         // isPassword: true,
+                //       ),
+                // SizedBox(height: 10),
+                Divider(),
+                SizedBox(height: 10),
+                widget.isLogin && predictedUser != null
+                    ? AppButton(
+                        text: 'LOGIN',
+                        onPressed: () async {
+                          _signIn(context);
+                        },
+                        icon: Icon(
+                          Icons.login,
+                          color: Colors.white,
+                        ),
+                      )
+                    : !widget.isLogin
+                        ? AppButton(
+                            text: 'SIGN UP',
+                            onPressed: () async {
+                              await _signUp(context);
+                            },
+                            icon: Icon(
+                              Icons.person_add,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Container(),
+              ],
+            ),
+          ),
         ],
       ),
     );

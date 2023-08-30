@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'package:face_net_authentication/locator.dart';
 import 'package:face_net_authentication/pages/widgets/FacePainter.dart';
+
 import 'package:face_net_authentication/pages/widgets/camera_header.dart';
 import 'package:face_net_authentication/services/camera.service.dart';
 import 'package:face_net_authentication/services/ml_service.dart';
@@ -64,7 +65,7 @@ class SignUpState extends State<SignUp> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text('Nenhum rosto detectado!'),
+            content: Text('No face detected!'),
           );
         },
       );

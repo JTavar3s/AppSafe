@@ -10,6 +10,7 @@ import 'package:face_net_authentication/services/ml_service.dart';
 import 'package:face_net_authentication/services/face_detector_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -197,6 +198,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Icon(Icons.person_add,
                                           color: Colors.white)
                                     ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 100,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  DatabaseHelper _dataBaseHelper =
+                                      DatabaseHelper.instance;
+                                  _dataBaseHelper.deleteAll().then(
+                                      (value) => Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MyHomePage(),
+                                          ),
+                                          (route) => false));
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 30,
+                                  color: Colors.red,
+                                  child: Center(
+                                    child: Text('Delete Database'),
                                   ),
                                 ),
                               ),
